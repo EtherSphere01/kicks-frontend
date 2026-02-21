@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans, Rubik } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./storeProvider";
+import Header from "@/components/layouts/Header";
 
 const rubik = Rubik({
     variable: "--font-rubik",
@@ -26,9 +27,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${rubik.variable} ${openSans.variable} antialiased`}
+                className={`${rubik.variable} ${openSans.variable} antialiased bg-[#E7E7E3] px-4 md:px-0`}
             >
-                <StoreProvider>{children}</StoreProvider>
+                <StoreProvider>
+                    <Header />
+                    {children}
+                </StoreProvider>
             </body>
         </html>
     );
