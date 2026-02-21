@@ -3,6 +3,7 @@ import { Open_Sans, Rubik } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./storeProvider";
 import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
 
 const rubik = Rubik({
     variable: "--font-rubik",
@@ -32,6 +33,7 @@ export default function RootLayout({
                 <StoreProvider>
                     <Header />
                     {children}
+                    <Footer />
                 </StoreProvider>
             </body>
         </html>

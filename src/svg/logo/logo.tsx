@@ -1,11 +1,29 @@
-export const Logo = ({ height = 32, width = 128, color = "#232321" }) => {
+type LogoProps = {
+    height?: number;
+    width?: number;
+    color?: string;
+    className?: string;
+    fluid?: boolean;
+    preserveAspectRatio?: React.SVGProps<SVGSVGElement>["preserveAspectRatio"];
+};
+
+export const Logo = ({
+    height = 32,
+    width = 128,
+    color = "#232321",
+    className,
+    fluid = false,
+    preserveAspectRatio = "xMidYMid meet",
+}: LogoProps) => {
     return (
         <svg
-            width={width}
-            height={height}
+            width={fluid ? undefined : width}
+            height={fluid ? undefined : height}
             viewBox="0 0 128 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio={preserveAspectRatio}
+            className={className}
         >
             <path
                 d="M32.1182 32C31.7942 32 31.5143 31.8815 31.2787 31.6444C31.0431 31.4074 30.9252 31.1259 30.9252 30.8V2.08889C30.9252 1.76296 31.0431 1.48148 31.2787 1.24444C31.5143 1.0074 31.7942 0.888885 32.1182 0.888885H41.1317C41.4557 0.888885 41.7355 1.0074 41.9711 1.24444C42.2068 1.48148 42.3246 1.76296 42.3246 2.08889V30.8C42.3246 31.1259 42.2068 31.4074 41.9711 31.6444C41.7355 31.8815 41.4557 32 41.1317 32H32.1182Z"

@@ -27,7 +27,7 @@ function CartBadge({ count = 0 }: { count?: number }) {
         <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#FFA52F] text-[#232321] font-semibold font-open-sans text-[16px]">
             <div className="flex items-center leading-none">
                 <span>{display}</span>
-                {isTenOrMore ? <Plus className="w-3 h-3" /> : null}
+                {isTenOrMore ? <Plus className="w-2 h-2" /> : null}
             </div>
         </div>
     );
@@ -255,13 +255,16 @@ export default function Header() {
                     aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                     aria-expanded={isMobileMenuOpen}
                     onClick={toggleMobileMenu}
-                    className="p-2"
+                    className="p-2 cursor-pointer"
                 >
                     <MenuIcon />
                 </button>
 
-                <div>
+                <div className="md:hidden">
                     <Logo width={80} height={20} />
+                </div>
+                <div className="hidden md:block">
+                    <Logo />
                 </div>
 
                 <div className="flex items-center gap-2.25">
