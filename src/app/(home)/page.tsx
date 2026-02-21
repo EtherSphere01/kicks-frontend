@@ -1,7 +1,10 @@
-import React from 'react'
+import HeroSection from "@/components/landingPage/HeroSection";
+import React from "react";
 
 export default function Home() {
-  return (
-    <div>Home</div>
-  )
+    return (
+        <div className="">
+            <HeroSection />
+        </div>
+    );
 }
