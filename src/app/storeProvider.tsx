@@ -1,11 +1,16 @@
 "use client";
+import { useMemo } from "react";
 import { Provider } from "react-redux";
-import { store } from "../redux/store";
+import { store, type RootState } from "../redux/store";
 
 export default function StoreProvider({
     children,
+    preloadedState,
 }: {
     children: React.ReactNode;
+    preloadedState?: Partial<RootState>;
 }) {
-    return <Provider store={store()}>{children}</Provider>;
+    const appStore = useMemo(() => store(preloadedState), [preloadedState]);
+
+    return <Provider store={appStore}>{children}</Provider>;
 }
